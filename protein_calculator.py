@@ -64,11 +64,11 @@ def main():
 
             # 출력 단위 조절 (소수점 아래로 너무 내려가지 않도록)
             if volume_ml < 1.0:
-                # 1ml 미만이면 µl 단위로 표시 (소수점 첫째자리 반올림)
-                result_str = f"{volume_ul:.1f} µl"
+                # 1ml 미만이면 µl 단위로 표시 (소수점 둘째자리 반올림)
+                result_str = f"{volume_ul:.2f} µl"
             else:
-                # 1ml 이상이면 ml 단위로 표시 (소수점 첫째자리 반올림)
-                result_str = f"{volume_ml:.1f} ml"
+                # 1ml 이상이면 ml 단위로 표시 (소수점 둘째자리 반올림)
+                result_str = f"{volume_ml:.2f} ml"
 
             st.success(f"🧪 취해야 하는 시료 부피: **{result_str}**")
         else:
@@ -112,9 +112,10 @@ def main():
                 total_mass_mg = total_mass_ug / 1000.0
                 st.success(f"📊 시료 내 총 단백질 함량: **{total_mass_mg:,.2f} mg**")
             else:
-                st.success(f"📊 시료 내 총 단백질 함량: **{total_mass_ug:,.1f} µg**")
+                st.success(f"📊 시료 내 총 단백질 함량: **{total_mass_ug:,.2f} µg**")
         else:
             st.warning("먼저 위에서 농도와 희석배수를 입력해주세요.")
 
 if __name__ == "__main__":
+
     main()
